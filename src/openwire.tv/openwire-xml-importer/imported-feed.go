@@ -38,7 +38,7 @@ type importFeedSuggestionChannel struct {
 type importFeedItem struct {
 	XMLName     xml.Name                `xml:"item"`
 	Title       string                  `xml:"title"`
-	Guid        string                  `xml:"guid"`
+	GUID        string                  `xml:"guid"`
 	Link        string                  `xml:"link"`
 	PubDate     time.Time               `xml:"pubDate"`
 	Description string                  `xml:"description"`

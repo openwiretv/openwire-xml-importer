@@ -44,7 +44,7 @@ func (t *openwireWriter) ToBytes() ([]byte, error) {
 
 	for _, item := range t.feed.Items {
 		rssItem := channel.CreateElement("item")
-		rssItem.CreateElement("guid").CreateText(item.Guid)
+		rssItem.CreateElement("guid").CreateText(item.GUID)
 		rssItem.CreateElement("title").CreateText(item.Title)
 		rssItem.CreateElement("link").CreateText(item.Link)
 		rssItem.CreateElement("pubDate").CreateText(item.PubDate.Format(time.RFC1123Z))

@@ -1,15 +1,28 @@
 # OpenWire XML Importer
 
+...
+
+## Installation
+
+...
+
 ### Examples
 
-* https://www.youtube.com/feeds/videos.xml?channel_id=UCRuqcoHGbRDOvgKwJ8B87cw
-* https://feeds.captivate.fm/ecommerce-masterplan/
+..................arguments table
 
 ```
-openwire-xml-importer --output openwire.xml --yt-channel-id UCRuqcoHGbRDOvgKwJ8B87cw
-openwire-xml-importer --output openwire.xml --it-podcast-url https://feeds.captivate.fm/ecommerce-masterplan/
+./bin/openwire-xml-importer -output <output-file-path> -yt-channel-id <youtube-channel-id>
+./bin/openwire-xml-importer -output <output-file-path> --it-podcast-url <url-to-itunes-xml>
 ```
+
+### Tests
+
+Run `make test`
 
 ### TODO
 
 * Argument to pass base `openwire.xml` file for copying base fields + previous videos/podcasts
+
+### License
+
+MIT

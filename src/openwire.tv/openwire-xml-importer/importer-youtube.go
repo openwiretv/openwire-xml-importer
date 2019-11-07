@@ -41,7 +41,7 @@ func (t *youTubeImporter) Parse(rawContent []byte) (*importFeed, error) {
 	for _, entry := range yt.Entries {
 		feedToImport.Items = append(feedToImport.Items, importFeedItem{
 			Title:       entry.Title,
-			Guid:        entry.VideoID,
+			GUID:        entry.VideoID,
 			Link:        "https://www.youtube.com/watch?v=" + entry.VideoID,
 			PubDate:     t.getDate(entry.PublishedDate),
 			Description: "",
@@ -91,7 +91,7 @@ type youtubeFeed struct {
 type youtubeFeedAuthor struct {
 	XMLName xml.Name `xml:"author"`
 	Name    string   `xml:"name"`
-	Uri     string   `xml:"uri"`
+	URI     string   `xml:"uri"`
 }
 
 type youtubeFeedEntry struct {

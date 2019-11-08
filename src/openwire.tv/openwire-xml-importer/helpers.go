@@ -16,8 +16,11 @@ func randSeq(n int) string {
 }
 
 func isWritable(filepath string) bool {
-	file, err := os.OpenFile(filepath, os.O_WRONLY, 0666)
+	file, err := os.OpenFile(filepath, os.O_RDWR|os.O_CREATE, 0666)
 	if err != nil {
+		if os.IsNotExist(err) {
+			return true
+		}
 		return false
 	}
 	file.Close()

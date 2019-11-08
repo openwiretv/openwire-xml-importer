@@ -1,7 +1,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"os"
 	"time"
 
 	"github.com/beevik/etree"
@@ -57,9 +57,6 @@ func (t *openwireWriter) ToBytes() ([]byte, error) {
 		enc.CreateAttr("length", "")
 	}
 
-	// doc.Indent(2)
-	// doc.WriteTo(os.Stdout)
-
 	return doc.WriteToBytes()
 }
 
@@ -69,5 +66,16 @@ func (t *openwireWriter) Write() error {
 		return err
 	}
 
-	return ioutil.WriteFile(t.filepath, content, 0644)
+	f, err := os.Create(t.filepath)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	if _, err = f.Write(content); err != nil {
+		return err
+	}
+
+	f.Sync()
+
+	return nil
 }
